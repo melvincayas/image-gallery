@@ -1,4 +1,8 @@
-import Enzyme, { shallow } from "enzyme";
+/**
+ * @jest-environment jsdom
+ */
+
+import Enzyme, { mount } from "enzyme";
 import EnzymeAdapter from "@wojtekmaj/enzyme-adapter-react-17";
 
 import Home from "./index";
@@ -6,13 +10,13 @@ import Home from "./index";
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 /**
- * Function setup for shallow method on Home component
+ * Function setup for mount method on Home component
  * @function setup
- * @returns {ShallowWrapper} - Top level of component
+ * @returns {MountWrapper} - Mount entire app
  */
 
 const setup = () => {
-	return shallow(<Home />);
+	return mount(<Home />);
 };
 
 describe("<Home /> Component renders properly", () => {
@@ -22,7 +26,11 @@ describe("<Home /> Component renders properly", () => {
 		expect(homeComponent.exists()).toBe(true);
 	});
 
-	test("renders Navbar with no error", () => {});
+	test("renders Navbar with no error", () => {
+		const wrapper = setup();
+		const navbarComponent = wrapper.find('[data-test="component-navbar"]');
+		expect(navbarComponent.exists()).toBe(true);
+	});
 
 	test("renders Form with no error", () => {});
 
