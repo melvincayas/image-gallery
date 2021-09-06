@@ -1,7 +1,7 @@
 export default function Home() {
 	return (
-		<div>
-			<p>Hello</p>
+		<div data-test="component-home">
+			<p data-test="string">Hello</p>
 		</div>
 	);
 }
