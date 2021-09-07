@@ -45,13 +45,13 @@ describe("state controlled input field", () => {
 });
 
 describe("when form is submitted", () => {
-	test("onSubmit is called with state", () => {
+	test("onSubmit is called after form submitted", () => {
 		const wrapper = setup();
+
 		const formComponent = wrapper.find('[data-test="component-form"]');
+		const mockSubmit = { preventDefault: jest.fn() };
+		formComponent.simulate("submit", mockSubmit);
 
-		const mockState = "test";
-		formComponent.simulate("submit", mockState);
-
-		expect(props.onSubmit).toHaveBeenCalledWith(mockState);
+		expect(props.onSubmit).toHaveBeenCalled();
 	});
 });

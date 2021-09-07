@@ -8,7 +8,8 @@ const Form = props => {
 		setUserInput(event.target.value);
 	};
 
-	const onSubmitHandler = userInput => {
+	const onSubmitHandler = event => {
+		event.preventDefault();
 		props.onSubmit(userInput);
 	};
 
