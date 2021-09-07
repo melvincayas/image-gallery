@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import Navbar from "../components/Navbar";
 import Form from "../components/Form";
+import ImagesContainer from "../components/ImagesContainer";
 
 import styles from "../styles/Home.module.css";
 
@@ -31,6 +32,7 @@ export default function Home(props) {
 					{displayText}
 				</aside>
 			</section>
+			<ImagesContainer images={images} />
 		</main>
 	);
 }
