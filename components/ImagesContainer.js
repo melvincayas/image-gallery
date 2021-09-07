@@ -12,7 +12,13 @@ const ImagesContainer = props => {
 			className={styles.container}
 			data-test="component-images-container"
 		>
-			<InfiniteScroll dataLength={props.images.length}>
+			<InfiniteScroll
+				dataLength={props.images.length}
+				next={props.getMoreImages}
+				hasMore={true}
+				loader={<h4>Loading...</h4>}
+				endMessage={<p>No more images!</p>}
+			>
 				{props.images.map(image => (
 					<ImageItem key={image.id} image={image} />
 				))}
@@ -23,6 +29,7 @@ const ImagesContainer = props => {
 
 ImagesContainer.propTypes = {
 	images: PropTypes.arrayOf(PropTypes.object).isRequired,
+	getMoreImages: PropTypes.func,
 };
 
 export default ImagesContainer;
