@@ -27,20 +27,29 @@ describe("<Home /> Component renders properly", () => {
 		wrapper = setup();
 	});
 
-	test("renders component with no error", () => {
-		const homeComponent = wrapper.find('[data-test="component-home"]');
-		expect(homeComponent.exists()).toBe(true);
+	describe("on initial load", () => {
+		test("renders component with no error", () => {
+			const homeComponent = wrapper.find('[data-test="component-home"]');
+			expect(homeComponent.exists()).toBe(true);
+		});
+
+		test("renders Navbar with no error", () => {
+			const navbarComponent = wrapper.find('[data-test="component-navbar"]');
+			expect(navbarComponent.exists()).toBe(true);
+		});
+
+		test("renders Form with no error", () => {
+			const formComponent = wrapper.find('[data-test="component-form"]');
+			expect(formComponent.exists()).toBe(true);
+		});
+
+		test('displays "Please enter something to search" text', () => {
+			const textDisplay = wrapper.find('[data-test="text-display"]');
+			expect(textDisplay.text()).toEqual("Please enter something to search.");
+		});
 	});
 
-	test("renders Navbar with no error", () => {
-		const navbarComponent = wrapper.find('[data-test="component-navbar"]');
-		expect(navbarComponent.exists()).toBe(true);
+	describe("after images are fetched", () => {
+		test("displays 'Results for' text", () => {});
 	});
-
-	test("renders Form with no error", () => {
-		const formComponent = wrapper.find('[data-test="component-form"]');
-		expect(formComponent.exists()).toBe(true);
-	});
-
-	test('displays "Please enter something to search" text', () => {});
 });
