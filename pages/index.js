@@ -1,18 +1,23 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
-import Navbar from "../components/Navbar";
 import ImagesContainer from "../components/ImagesContainer";
+
+import styles from "../styles/Home.module.css";
 
 export default function Home(props) {
 	const [images, setImages] = useState([...props.images]);
 
 	return (
-		<main data-test="component-home">
-			<Navbar />
+		<main className={styles.container} data-test="component-home">
 			<ImagesContainer images={images} />
 		</main>
 	);
 }
+
+Home.propTypes = {
+	images: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export async function getStaticProps(context) {
 	// gets initial batch of 10 images

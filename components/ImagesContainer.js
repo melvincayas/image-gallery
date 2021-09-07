@@ -3,10 +3,14 @@ import PropTypes from "prop-types";
 
 import ImageItem from "./ImageItem";
 
+import styles from "./ImagesContainer.module.css";
+
 const ImagesContainer = props => {
-	console.log(props.images);
 	return (
-		<section data-test="component-images-container">
+		<section
+			className={styles.container}
+			data-test="component-images-container"
+		>
 			{props.images.map(image => (
 				<ImageItem key={image.id} image={image} />
 			))}

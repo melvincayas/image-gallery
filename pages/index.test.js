@@ -44,7 +44,7 @@ describe("<Home /> Component renders properly", () => {
 			expect(homeComponent.exists()).toBe(true);
 		});
 
-		test("renders Navbar with no error", () => {
+		test.skip("renders Navbar with no error", () => {
 			const navbarComponent = wrapper.find('[data-test="component-navbar"]');
 			expect(navbarComponent.exists()).toBe(true);
 		});

@@ -7,11 +7,7 @@ import styles from "./ImageItem.module.css";
 const ImageItem = props => {
 	return (
 		<figure className={styles.image} data-test="component-image">
-			<img
-				src={props.image.urls.small}
-				alt={props.alt_description}
-				layout="fill"
-			/>
+			<img src={props.image.urls.small} alt={props.alt_description} />
 		</figure>
 	);
 };
