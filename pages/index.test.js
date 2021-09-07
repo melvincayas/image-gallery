@@ -49,12 +49,12 @@ describe("<Home /> Component renders properly", () => {
 			expect(navbarComponent.exists()).toBe(true);
 		});
 
-		test("renders Form with no error", () => {
+		test.skip("renders Form with no error", () => {
 			const formComponent = wrapper.find('[data-test="component-form"]');
 			expect(formComponent.exists()).toBe(true);
 		});
 
-		test('displays "Please enter something to search" text', () => {
+		test.skip('displays "Please enter something to search" text', () => {
 			const textDisplay = wrapper.find('[data-test="text-display"]');
 			expect(textDisplay.text()).toEqual("Please enter something to search.");
 		});

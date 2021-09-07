@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import ImageItem from "./ImageItem";
 
 const ImagesContainer = props => {
+	console.log(props.images);
 	return (
 		<section data-test="component-images-container">
 			{props.images.map(image => (

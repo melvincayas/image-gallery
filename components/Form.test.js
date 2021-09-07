@@ -24,7 +24,7 @@ const setup = () => {
 	return shallow(<Form {...props} />);
 };
 
-describe("<Form /> Component", () => {
+describe.skip("<Form /> Component", () => {
 	test("renders without error", () => {
 		const wrapper = setup();
 		const formComponent = wrapper.find('[data-test="component-form"]');
@@ -32,7 +32,7 @@ describe("<Form /> Component", () => {
 	});
 });
 
-describe("state controlled input field", () => {
+describe.skip("state controlled input field", () => {
 	test("state updates with value of input box on change", () => {
 		const wrapper = setup();
 		const inputBox = wrapper.find('[data-test="input-box"]');
@@ -44,7 +44,7 @@ describe("state controlled input field", () => {
 	});
 });
 
-describe("when form is submitted", () => {
+describe.skip("when form is submitted", () => {
 	test("onSubmit is called after form submitted", () => {
 		const wrapper = setup();
 
