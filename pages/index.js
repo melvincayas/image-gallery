@@ -7,7 +7,7 @@ import ImagesContainer from "../components/ImagesContainer";
 import styles from "../styles/Home.module.css";
 
 export default function Home(props) {
-	const [images, setImages] = useState([props.images]);
+	const [images, setImages] = useState([...props.images]);
 	const [searchTerm, setSearchTerm] = useState("");
 	// for images, to be set on fetch with onSearchSubmit
 

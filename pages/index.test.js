@@ -16,8 +16,10 @@ Enzyme.configure({ adapter: new EnzymeAdapter() });
  * @returns {MountWrapper} - Mount entire app
  */
 
+const props = { images: [{ id: 1, author: "test author" }] };
+
 const setup = () => {
-	return mount(<Home />);
+	return mount(<Home {...props} />);
 };
 
 describe("<Home /> Component renders properly", () => {
