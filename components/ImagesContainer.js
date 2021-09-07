@@ -7,6 +7,13 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import styles from "./ImagesContainer.module.css";
 
 const ImagesContainer = props => {
+	const gridStyle = {
+		display: "flex",
+		flexDirection: "row",
+		flexWrap: "wrap",
+		justifyContent: "center",
+	};
+
 	return (
 		<section
 			className={styles.container}
@@ -18,6 +25,7 @@ const ImagesContainer = props => {
 				hasMore={true}
 				loader={<h4>Loading...</h4>}
 				endMessage={<p>No more images!</p>}
+				style={props.layout === "Grid" ? gridStyle : ""}
 			>
 				{props.images.map(image => (
 					<ImageItem key={image.id} image={image} />

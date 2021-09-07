@@ -7,6 +7,7 @@ import styles from "../styles/Home.module.css";
 
 export default function Home(props) {
 	const [images, setImages] = useState([...props.images]);
+	const [layoutView, setLayoutView] = useState("List");
 
 	const getMoreImages = async () => {
 		const response = await fetch(
@@ -20,9 +21,21 @@ export default function Home(props) {
 		setImages(prevImages => [...prevImages, ...newImages]);
 	};
 
+	const onClickHandler = () => {
+		setLayoutView(layoutView === "List" ? "Grid" : "List");
+	};
+
 	return (
 		<main className={styles.container} data-test="component-home">
-			<ImagesContainer images={images} getMoreImages={getMoreImages} />
+			<div>
+				<h3>Current Layout</h3>
+				<button onClick={onClickHandler}>{layoutView}</button>
+			</div>
+			<ImagesContainer
+				images={images}
+				getMoreImages={getMoreImages}
+				layout={layoutView}
+			/>
 		</main>
 	);
 }
