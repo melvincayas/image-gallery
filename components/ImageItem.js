@@ -10,13 +10,15 @@ const ImageItem = props => {
 	return (
 		<figure className={styles.image} data-test="component-image">
 			<Link href={`/images/${props.image.id}`}>
-				<Image
-					src={props.image.urls.small}
-					alt={props.alt_description}
-					width={+props.image.width}
-					height={+props.image.height}
-					layout="responsive"
-				/>
+				<a>
+					<Image
+						src={props.image.urls.small}
+						alt={props.alt_description}
+						width={+props.image.width}
+						height={+props.image.height}
+						layout="responsive"
+					/>
+				</a>
 			</Link>
 		</figure>
 	);
