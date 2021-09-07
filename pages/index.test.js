@@ -49,7 +49,7 @@ describe("<Home /> Component renders properly", () => {
 		});
 	});
 
-	describe("after images are fetched", () => {
+	describe("after new images are fetched", () => {
 		test("displays 'Results for' text", () => {});
 	});
 });

@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Navbar from "../components/Navbar";
 import Form from "../components/Form";
 
 import styles from "../styles/Home.module.css";
 
-export default function Home() {
-	const [images, setImages] = useState([]);
+export default function Home(props) {
+	const [images, setImages] = useState([props.images]);
 	const [searchTerm, setSearchTerm] = useState("");
 	// for images, to be set on fetch with onSearchSubmit
 
@@ -33,4 +33,16 @@ export default function Home() {
 			</section>
 		</main>
 	);
+}
+
+export async function getStaticProps(context) {
+	// gets initial batch of 10 images
+	const response = await fetch(
+		`https://api.unsplash.com/photos?client_id=${process.env.CLIENT_ID}&per_page=9`
+	);
+	const result = await response.json();
+
+	return {
+		props: { images: result },
+	};
 }
