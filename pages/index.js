@@ -26,7 +26,7 @@ export default function Home(props) {
 	};
 
 	return (
-		<main className={styles.container} data-test="component-home">
+		<section className={styles.container} data-test="component-home">
 			<div>
 				<h3>Current Layout</h3>
 				<button onClick={onClickHandler} data-test="layout-button">
@@ -38,7 +38,7 @@ export default function Home(props) {
 				getMoreImages={getMoreImages}
 				layout={layoutView}
 			/>
-		</main>
+		</section>
 	);
 }
 
