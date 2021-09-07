@@ -46,23 +46,17 @@ describe("<Home /> Component renders properly", () => {
 			expect(homeComponent.exists()).toBe(true);
 		});
 
-		test.skip("renders Navbar with no error", () => {
-			const navbarComponent = wrapper.find('[data-test="component-navbar"]');
-			expect(navbarComponent.exists()).toBe(true);
-		});
-
-		test.skip("renders Form with no error", () => {
-			const formComponent = wrapper.find('[data-test="component-form"]');
-			expect(formComponent.exists()).toBe(true);
-		});
-
-		test.skip('displays "Please enter something to search" text', () => {
-			const textDisplay = wrapper.find('[data-test="text-display"]');
-			expect(textDisplay.text()).toEqual("Please enter something to search.");
+		test("renders List text in button", () => {
+			const layoutButton = wrapper.find('[data-test="layout-button"]');
+			expect(layoutButton.text()).toEqual("List");
 		});
 	});
 
-	describe("after new images are fetched", () => {
-		test("displays 'Results for' text", () => {});
+	describe("layout view", () => {
+		test("layout changes on button click", () => {
+			const layoutButton = wrapper.find('[data-test="layout-button"]');
+			layoutButton.simulate("click");
+			expect(layoutButton.text()).toEqual("Grid");
+		});
 	});
 });

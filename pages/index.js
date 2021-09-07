@@ -29,7 +29,9 @@ export default function Home(props) {
 		<main className={styles.container} data-test="component-home">
 			<div>
 				<h3>Current Layout</h3>
-				<button onClick={onClickHandler}>{layoutView}</button>
+				<button onClick={onClickHandler} data-test="layout-button">
+					{layoutView}
+				</button>
 			</div>
 			<ImagesContainer
 				images={images}
