@@ -22,6 +22,8 @@ const props = {
 			id: 1,
 			author: "test author",
 			urls: { small: "https://testurl.com" },
+			width: 100,
+			height: 100,
 			alt_description: "test alt description",
 		},
 	],

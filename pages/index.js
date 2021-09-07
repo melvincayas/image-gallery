@@ -8,6 +8,8 @@ import styles from "../styles/Home.module.css";
 export default function Home(props) {
 	const [images, setImages] = useState([...props.images]);
 
+	const getMorePosts = async () => {};
+
 	return (
 		<main className={styles.container} data-test="component-home">
 			<ImagesContainer images={images} />
