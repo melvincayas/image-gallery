@@ -1,19 +1,23 @@
 import React from "react";
-import Image from "next/image";
 import PropTypes from "prop-types";
+
+import Image from "next/image";
+import Link from "next/link";
 
 import styles from "./ImageItem.module.css";
 
 const ImageItem = props => {
 	return (
 		<figure className={styles.image} data-test="component-image">
-			<Image
-				src={props.image.urls.small}
-				alt={props.alt_description}
-				width={+props.image.width}
-				height={+props.image.height}
-				layout="responsive"
-			/>
+			<Link href={`/images/${props.image.id}`}>
+				<Image
+					src={props.image.urls.small}
+					alt={props.alt_description}
+					width={+props.image.width}
+					height={+props.image.height}
+					layout="responsive"
+				/>
+			</Link>
 		</figure>
 	);
 };
