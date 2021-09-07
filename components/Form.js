@@ -5,7 +5,7 @@ const Form = props => {
 	const [userInput, setUserInput] = useState("");
 
 	const onChangeHandler = event => {
-		setUserInput(event.target.value);
+		props.onChange(event.target.value);
 	};
 
 	const onSubmitHandler = userInput => {
@@ -26,6 +26,8 @@ const Form = props => {
 };
 
 Form.propTypes = {
+	value: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
 	onSubmit: PropTypes.func.isRequired,
 };
 
