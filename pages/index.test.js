@@ -50,6 +50,11 @@ describe("<Home /> Component renders properly", () => {
 			const layoutButton = wrapper.find('[data-test="layout-button"]');
 			expect(layoutButton.text()).toEqual("List");
 		});
+
+		test("renders 1 image", () => {
+			const imageComponent = wrapper.find('[data-test="component-image"]');
+			expect(imageComponent.length).toEqual(1);
+		});
 	});
 
 	describe("layout view", () => {
