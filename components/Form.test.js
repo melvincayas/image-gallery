@@ -18,8 +18,10 @@ jest.mock("react", () => ({
  * @returns {ShallowWrapper} - Top level for Form component
  */
 
+const props = { onSubmit: jest.fn() };
+
 const setup = () => {
-	return shallow(<Form />);
+	return shallow(<Form {...props} />);
 };
 
 describe("<Form /> Component", () => {
@@ -39,5 +41,17 @@ describe("state controlled input field", () => {
 		inputBox.simulate("change", mockEvent);
 
 		expect(mockSetUserInput).toHaveBeenCalledWith(mockEvent.target.value);
+	});
+});
+
+describe("when form is submitted", () => {
+	test("onSubmit is called with state", () => {
+		const wrapper = setup();
+		const formComponent = wrapper.find('[data-test="component-form"]');
+
+		const mockState = "test";
+		formComponent.simulate("submit", mockState);
+
+		expect(props.onSubmit).toHaveBeenCalledWith(mockState);
 	});
 });

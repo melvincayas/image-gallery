@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import PropTypes from "prop-types";
 
-const Form = () => {
+const Form = props => {
 	const [userInput, setUserInput] = useState("");
-	// useState for user input search
-
-	// create onSubmit for fetch call which will give state to Home
 
 	const onChangeHandler = event => {
 		setUserInput(event.target.value);
 	};
 
+	const onSubmitHandler = userInput => {
+		props.onSubmit(userInput);
+	};
+
 	return (
-		<form data-test="component-form">
+		<form data-test="component-form" onSubmit={onSubmitHandler}>
 			<input
 				data-test="input-box"
 				value={userInput}
@@ -21,6 +23,10 @@ const Form = () => {
 			<button>Search</button>
 		</form>
 	);
+};
+
+Form.propTypes = {
+	onSubmit: PropTypes.func.isRequired,
 };
 
 export default Form;
