@@ -2,11 +2,18 @@ import React from "react";
 import Enzyme, { shallow } from "enzyme";
 import EnzymeAdapter from "@wojtekmaj/enzyme-adapter-react-17";
 
-import Image from "./Image";
+import Image from "./ImageItem";
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-const props = { image: { id: 1, author: "test author" } };
+const props = {
+	image: {
+		id: 1,
+		author: "test author",
+		urls: { small: "https://testurl.com" },
+		alt_description: "test alt description",
+	},
+};
 
 /**
  * Function setup for ShallowWrapper for Image component
