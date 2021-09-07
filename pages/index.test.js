@@ -10,12 +10,6 @@ import Home from "./index";
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-const mockSetUserInput = jest.fn();
-jest.mock("react", () => ({
-	...jest.requireActual("react"),
-	useState: initialState => [initialState, mockSetUserInput],
-}));
-
 /**
  * Function setup for mount method on Home component
  * @function setup

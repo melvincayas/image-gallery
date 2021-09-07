@@ -6,13 +6,19 @@ import Form from "./Form";
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
+const mockSetUserInput = jest.fn();
+jest.mock("react", () => ({
+	...jest.requireActual("react"),
+	useState: initialState => [initialState, mockSetUserInput],
+}));
+
 /**
  * Function setup for Form component
  * @function setup
  * @returns {ShallowWrapper} - Top level for Form component
  */
 
-const props = { value: "test", onChange: jest.fn(), onSubmit: jest.fn() };
+const props = { onSubmit: jest.fn() };
 
 const setup = () => {
 	return shallow(<Form {...props} />);
@@ -31,10 +37,10 @@ describe("state controlled input field", () => {
 		const wrapper = setup();
 		const inputBox = wrapper.find('[data-test="input-box"]');
 
-		const mockEvent = { target: { value: "another search" } };
+		const mockEvent = { target: { value: "test" } };
 		inputBox.simulate("change", mockEvent);
 
-		expect(props.onChange).toHaveBeenCalledWith(mockEvent.target.value);
+		expect(mockSetUserInput).toHaveBeenCalledWith(mockEvent.target.value);
 	});
 });
 
@@ -43,7 +49,7 @@ describe("when form is submitted", () => {
 		const wrapper = setup();
 		const formComponent = wrapper.find('[data-test="component-form"]');
 
-		const mockState = "submitted another search";
+		const mockState = "test";
 		formComponent.simulate("submit", mockState);
 
 		expect(props.onSubmit).toHaveBeenCalledWith(mockState);
