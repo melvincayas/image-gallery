@@ -34,7 +34,6 @@ describe("state controlled input field", () => {
 	test("state updates with value of input box on change", () => {
 		const wrapper = setup();
 		const inputBox = wrapper.find('[data-test="input-box"]');
-		expect(inputBox.exists()).toBe(true);
 
 		const mockEvent = { target: { value: "test" } };
 		inputBox.simulate("change", mockEvent);
