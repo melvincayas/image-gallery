@@ -31,7 +31,7 @@ Home.propTypes = {
 	images: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export async function getStaticProps(context) {
+export const getStaticProps = async () => {
 	// gets initial batch of 10 images
 	const response = await fetch(
 		`https://api.unsplash.com/photos?client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&per_page=10&page=1`
@@ -41,4 +41,4 @@ export async function getStaticProps(context) {
 	return {
 		props: { images: result },
 	};
-}
+};
