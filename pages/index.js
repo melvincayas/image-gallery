@@ -3,6 +3,8 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Form from "../components/Form";
 
+import styles from "../styles/Home.module.css";
+
 export default function Home() {
 	const [images, setImages] = useState([]);
 	const [searchTerm, setSearchTerm] = useState("");
@@ -21,10 +23,14 @@ export default function Home() {
 			: `Results for '${searchTerm}'`;
 
 	return (
-		<div data-test="component-home">
+		<main data-test="component-home">
 			<Navbar />
-			<Form onSubmit={onSearchSubmit} />
-			<aside data-test="text-display">{displayText}</aside>
-		</div>
+			<section className={styles.container}>
+				<Form onSubmit={onSearchSubmit} />
+				<aside className={styles["display-text"]} data-test="text-display">
+					{displayText}
+				</aside>
+			</section>
+		</main>
 	);
 }
