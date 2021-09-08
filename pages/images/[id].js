@@ -33,7 +33,7 @@ const ImageDetail = props => {
 								<a>{props.image.user.name}</a>
 							</Link>
 							<p className={styles["header-text"]}>
-								{props.image.user.total_photos} photos
+								{Number(props.image.user.total_photos).toLocaleString()} photos
 							</p>
 						</div>
 					</div>
