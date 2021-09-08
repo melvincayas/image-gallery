@@ -6,7 +6,7 @@ The goals of this project are to:
 
 - Use the Unsplash API to create an image gallery and support infinite scrolling that loads 10 images in one batch.
 - Create a toggle button to toggle the image view from list to grid.
-- Clicking on an image renders shows the image in full resolution with additional information such as the photographer, date, views, and downloads.
+- Clicking on an image renders the image in full resolution with additional information such as the photographer, date, views, and downloads.
 
 ## Built With
 
