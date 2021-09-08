@@ -35,7 +35,7 @@ export default function Home(props) {
 	// will conditionally render based on window size
 	const layoutContainer = (
 		<div className={styles["settings-container"]}>
-			<h3>Change Layout</h3>
+			<h2>Change Layout</h2>
 			<button
 				className={styles.button}
 				onClick={onClickHandler}
