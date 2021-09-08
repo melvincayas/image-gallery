@@ -27,9 +27,13 @@ export default function Home(props) {
 
 	return (
 		<section className={styles.container} data-test="component-home">
-			<div>
-				<h3>Current Layout</h3>
-				<button onClick={onClickHandler} data-test="layout-button">
+			<div className={styles["settings-container"]}>
+				<h3>Change Layout</h3>
+				<button
+					className={styles.button}
+					onClick={onClickHandler}
+					data-test="layout-button"
+				>
 					{layoutView}
 				</button>
 			</div>
