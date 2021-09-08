@@ -1,6 +1,7 @@
 .image {
 	width: 400px;
 	transition: all 0.2s ease;
+	margin: 0.75em;
 }
 
 .image:hover {
