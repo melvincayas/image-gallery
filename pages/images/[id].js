@@ -1,78 +1,93 @@
+import { Fragment } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 
+import NextHead from "../../components/NextHead";
 import Link from "next/link";
 import Image from "next/image";
 
 import styles from "../../styles/ImageDetail.module.css";
 
 const ImageDetail = props => {
+	const imageDescription =
+		props.image.description || props.image.alt_description;
+
 	// Unsplash API docs recommend against Full size for performance issues
 	// next biggest is Regular size
 
-	return (
-		<section className={styles.container} data-test="component-image-detail">
-			<header data-test="header-block">
-				<section className={styles["header-row"]}>
-					<div className={styles["user-information"]}>
-						<div className={styles["profile-picture-container"]}>
-							<Link href={`https://unsplash.com/@${props.image.user.username}`}>
-								<a>
-									<Image
-										className={styles["profile-picture"]}
-										src={props.image.user.profile_image.medium}
-										width={64}
-										height={64}
-										layout="fixed"
-										alt="User profile picture"
-									/>
-								</a>
-							</Link>
-						</div>
-						<div>
-							<Link href={`https://unsplash.com/@${props.image.user.username}`}>
-								<a>{props.image.user.name}</a>
-							</Link>
-							<p className={styles["header-text"]}>
-								{Number(props.image.user.total_photos).toLocaleString()} photos
-							</p>
-						</div>
+	const header = (
+		<header data-test="header-block">
+			<section className={styles["header-row"]}>
+				<div className={styles["user-information"]}>
+					<div className={styles["profile-picture-container"]}>
+						<Link href={`https://unsplash.com/@${props.image.user.username}`}>
+							<a>
+								<Image
+									className={styles["profile-picture"]}
+									src={props.image.user.profile_image.medium}
+									width={64}
+									height={64}
+									layout="fixed"
+									alt="User profile picture"
+								/>
+							</a>
+						</Link>
 					</div>
-					<Link href="/">
-						<a>Back</a>
-					</Link>
-				</section>
-				<section className={styles["header-row"]}>
 					<div>
+						<Link href={`https://unsplash.com/@${props.image.user.username}`}>
+							<a>{props.image.user.name}</a>
+						</Link>
 						<p className={styles["header-text"]}>
-							<time>
-								{moment(props.image.created_at).format("MMMM D, YYYY")}
-							</time>
-						</p>
-						<p className={styles["header-text"]}>
-							{props.image.description || props.image.alt_description}
+							{Number(props.image.user.total_photos).toLocaleString()} photos
 						</p>
 					</div>
-					<div className={styles["photo-views"]}>
-						<p className={styles["header-text"]}>
-							{Number(props.image.views).toLocaleString()} Views
-						</p>
-						<p className={styles["header-text"]}>
-							{Number(props.image.downloads).toLocaleString()} Downloads
-						</p>
-					</div>
-				</section>
-			</header>
-			<div className={styles["image-container"]} data-test="image-container">
-				<Image
-					src={props.image.urls.regular}
-					width={+props.image.width}
-					height={+props.image.height}
-					layout="responsive"
-					alt={props.image.alt_description}
-				/>
-			</div>
-		</section>
+				</div>
+				<Link href="/">
+					<a>Back</a>
+				</Link>
+			</section>
+			<section className={styles["header-row"]}>
+				<div>
+					<p className={styles["header-text"]}>
+						<time>{moment(props.image.created_at).format("MMMM D, YYYY")}</time>
+					</p>
+					<p className={styles["header-text"]}>{imageDescription}</p>
+				</div>
+				<div className={styles["photo-views"]}>
+					<p className={styles["header-text"]}>
+						{Number(props.image.views).toLocaleString()} Views
+					</p>
+					<p className={styles["header-text"]}>
+						{Number(props.image.downloads).toLocaleString()} Downloads
+					</p>
+				</div>
+			</section>
+		</header>
+	);
+
+	return (
+		<Fragment>
+			<NextHead
+				contentTitle={`${imageDescription} | ${props.image.user.name} | Image Gallery`}
+				contentDescription={imageDescription}
+				contentUrl={`/images/${props.image.id}`}
+				contentImageURL={props.image.urls.regular}
+				contentImageAlt={imageDescription}
+				pageTitle={`${imageDescription} | ${props.image.user.name} | Image Gallery`}
+			/>
+			<section className={styles.container} data-test="component-image-detail">
+				{header}
+				<div className={styles["image-container"]} data-test="image-container">
+					<Image
+						src={props.image.urls.regular}
+						width={+props.image.width}
+						height={+props.image.height}
+						layout="responsive"
+						alt={props.image.alt_description}
+					/>
+				</div>
+			</section>
+		</Fragment>
 	);
 };
 

@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import useWindowDimensions from "../components/hooks/useWindowDimensions";
 
+import NextHead from "../components/NextHead";
 import ImagesContainer from "../components/ImagesContainer";
 
 import styles from "../styles/Home.module.css";
@@ -46,14 +47,24 @@ export default function Home(props) {
 	);
 
 	return (
-		<section className={styles.container} data-test="component-home">
-			{windowDimensions.width > 957 && layoutContainer}
-			<ImagesContainer
-				images={images}
-				getMoreImages={getMoreImages}
-				layout={layoutView}
+		<Fragment>
+			<NextHead
+				contentTitle="Image Gallery with Next.js"
+				contentDescription="Image Gallery with Unsplash API and Next.js"
+				contentUrl="/"
+				contentImageURL="https://images.unsplash.com/photo-1518707598572-8cf7dabd8f66?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+				contentImageAlt="Screen with multiple images"
+				pageTitle="Image Gallery"
 			/>
-		</section>
+			<section className={styles.container} data-test="component-home">
+				{windowDimensions.width > 957 && layoutContainer}
+				<ImagesContainer
+					images={images}
+					getMoreImages={getMoreImages}
+					layout={layoutView}
+				/>
+			</section>
+		</Fragment>
 	);
 }
 
