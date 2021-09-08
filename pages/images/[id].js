@@ -24,6 +24,7 @@ const ImageDetail = props => {
 										width={64}
 										height={64}
 										layout="fixed"
+										alt="User profile picture"
 									/>
 								</a>
 							</Link>
@@ -68,6 +69,7 @@ const ImageDetail = props => {
 					width={+props.image.width}
 					height={+props.image.height}
 					layout="responsive"
+					alt={props.image.alt_description}
 				/>
 			</div>
 		</section>
