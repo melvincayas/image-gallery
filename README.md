@@ -2,7 +2,7 @@
 
 This is a project using the Unplash API to fetch images with Next.js. The application will initially fetch 10 images and will keeping fetching images in batches of 10 through infinite scroll with [react-infinite-scroll-component](https://www.npmjs.com/package/react-infinite-scroll-component).
 
-The goals of this project is to:
+The goals of this project are to:
 
 - Use the Unsplash API to create an image gallery and support infinite scrolling that loads 10 images in one batch.
 - Create a toggle button to toggle the image view from list to grid.
