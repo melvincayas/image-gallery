@@ -37,6 +37,7 @@ const ImageDetail = props => {
 						<Link href={`https://unsplash.com/@${props.image.user.username}`}>
 							<a>{props.image.user.name}</a>
 						</Link>
+						<p className={styles["header-text"]}>{props.image.user.location}</p>
 						<p className={styles["header-text"]}>
 							{Number(props.image.user.total_photos).toLocaleString()} photos
 						</p>
