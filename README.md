@@ -29,7 +29,7 @@ npm install
 
 3. You must get an API access key from [Unsplash](https://unsplash.com/documentation#creating-a-developer-account). Please keep in mind that demo apps are limited to 50 requests per hour.
 
-4.. Include the following in your `.env.local` file:
+4. Include the following in your `.env.local` file:
 
 ```
 NEXT_PUBLIC_CLIENT_ID=YOUR_UNSPLASH_API_ACCESS_KEY
