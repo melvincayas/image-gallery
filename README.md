@@ -1,6 +1,6 @@
 # Image Gallery with Next.js
 
-This is a project using the Unplashi API to fetch images with Next.js. The application will initially fetch 10 images and will keeping fetching images in batches of 10 through infinite scroll with [react-infinite-scroll-component](https://www.npmjs.com/package/react-infinite-scroll-component).
+This is a project using the Unplash API to fetch images with Next.js. The application will initially fetch 10 images and will keeping fetching images in batches of 10 through infinite scroll with [react-infinite-scroll-component](https://www.npmjs.com/package/react-infinite-scroll-component).
 
 The goals of this project is to:
 
