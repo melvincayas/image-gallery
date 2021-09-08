@@ -1,9 +1,5 @@
-import Enzyme, { mount } from "enzyme";
-import EnzymeAdapter from "@wojtekmaj/enzyme-adapter-react-17";
-
+import { mount } from "enzyme";
 import Layout from "./Layout";
-
-Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 const props = { children: <div></div> };
 

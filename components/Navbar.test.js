@@ -1,9 +1,5 @@
-import Enzyme, { shallow } from "enzyme";
-import EnzymeAdapter from "@wojtekmaj/enzyme-adapter-react-17";
-
+import { shallow } from "enzyme";
 import Navbar from "../components/Navbar";
-
-Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 /**
  * Function setup for shallow method on Navbar component

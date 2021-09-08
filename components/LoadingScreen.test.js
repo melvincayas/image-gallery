@@ -1,9 +1,5 @@
-import Enzyme, { shallow } from "enzyme";
-import EnzymeAdapter from "@wojtekmaj/enzyme-adapter-react-17";
-
+import { shallow } from "enzyme";
 import LoadingScreen from "./LoadingScreen";
-
-Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 /**
  * Function setup for ShallowWrapper for LoadingScreen component
