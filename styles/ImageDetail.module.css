@@ -1,15 +1,17 @@
 .container {
 	width: 80%;
+	margin-top: 1em;
 }
 
-.header-first-row {
+.header-row {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.image {
+.image-container {
+	margin: 1em auto;
 	width: 100%;
 }
 
@@ -31,6 +33,10 @@
 	align-items: center;
 }
 
-.photo-amount {
-	margin: 0;
+.header-text {
+	margin: 0.25em 0;
+}
+
+.photo-views {
+	text-align: right;
 }

@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import moment from "moment";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -12,7 +13,7 @@ const ImageDetail = props => {
 	return (
 		<section className={styles.container} data-test="component-image-detail">
 			<header>
-				<section className={styles["header-first-row"]}>
+				<section className={styles["header-row"]}>
 					<div
 						className={styles["user-information"]}
 						data-test="user-information"
@@ -34,7 +35,7 @@ const ImageDetail = props => {
 							<Link href={`https://unsplash.com/@${props.image.user.username}`}>
 								<a>{props.image.user.name}</a>
 							</Link>
-							<p className={styles["photo-amount"]}>
+							<p className={styles["header-text"]}>
 								{props.image.user.total_photos} photos
 							</p>
 						</div>
@@ -43,20 +44,34 @@ const ImageDetail = props => {
 						<a>Back</a>
 					</Link>
 				</section>
-				<section>
-					<p>{props.image.created_at}</p>
-					<p>{props.image.description || props.image.alt_description}</p>
+				<section className={styles["header-row"]}>
+					<div>
+						<p className={styles["header-text"]}>
+							<time>
+								{moment(props.image.created_at).format("MMMM D, YYYY")}
+							</time>
+						</p>
+						<p className={styles["header-text"]}>
+							{props.image.description || props.image.alt_description}
+						</p>
+					</div>
+					<div className={styles["photo-views"]}>
+						<p className={styles["header-text"]}>
+							{Number(props.image.views).toLocaleString()} Views
+						</p>
+						<p className={styles["header-text"]}>
+							{Number(props.image.downloads).toLocaleString()} Downloads
+						</p>
+					</div>
 				</section>
 			</header>
-			<div className={styles.image}>
-				<figure>
-					<Image
-						src={props.image.urls.regular}
-						width={+props.image.width}
-						height={+props.image.height}
-						layout="responsive"
-					/>
-				</figure>
+			<div className={styles["image-container"]}>
+				<Image
+					src={props.image.urls.regular}
+					width={+props.image.width}
+					height={+props.image.height}
+					layout="responsive"
+				/>
 			</div>
 		</section>
 	);
