@@ -12,6 +12,7 @@ The goals of this project are to:
 
 - Added loading screen on route change using animation from [react-loading](https://www.npmjs.com/package/react-loading)
 - List-to-Grid button conditionally rendered based on width with custom hook: `useWindowDimensions`
+- Add [Open Graph](https://ogp.me/) meta tags in `_document.js` and `Head` from `next/head` for social sharing
 
 ## Built With
 
@@ -74,6 +75,7 @@ git push origin your-improvement
 - [Moment.js](https://momentjs.com/)
 - [Jest](https://jestjs.io/)
 - [Enzyme](https://www.npmjs.com/package/enzyme)
+- [Open Graph Protocol](https://ogp.me/)
 - [react-infinite-scroll-component](https://www.npmjs.com/package/react-infinite-scroll-component)
 - [react-loading](https://www.npmjs.com/package/react-loading)
 
