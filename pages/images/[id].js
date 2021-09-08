@@ -1,9 +1,58 @@
 import PropTypes from "prop-types";
+
+import Link from "next/link";
+import Image from "next/image";
+
 import styles from "../../styles/ImageDetail.module.css";
 
-const ImageDetail = ({ image }) => {
+const ImageDetail = props => {
+	// Unsplash API recommends against Full size for performance issues
+	// next biggest is Regular size
+
 	return (
-		<div className={styles.container}>Image Detail Page for {image.id}</div>
+		<section className={styles.container} data-test="component-image-detail">
+			<aside className={styles.back}>
+				<Link href="/">
+					<a>Back</a>
+				</Link>
+			</aside>
+			<aside>
+				<div className={styles["user-information"]}>
+					<div className={styles["profile-picture-container"]}>
+						<Link href={`https://unsplash.com/@${props.image.user.username}`}>
+							<a>
+								<Image
+									className={styles["profile-picture"]}
+									src={props.image.user.profile_image.medium}
+									width={64}
+									height={64}
+									layout="fixed"
+								/>
+							</a>
+						</Link>
+					</div>
+					<div>
+						<Link href={`https://unsplash.com/@${props.image.user.username}`}>
+							<a>{props.image.user.name}</a>
+						</Link>
+						<p className={styles["photo-amount"]}>
+							{props.image.user.total_photos} photos
+						</p>
+					</div>
+				</div>
+				<div></div>
+			</aside>
+			<div className={styles.image}>
+				<figure>
+					<Image
+						src={props.image.urls.regular}
+						width={+props.image.width}
+						height={+props.image.height}
+						layout="responsive"
+					/>
+				</figure>
+			</div>
+		</section>
 	);
 };
 
