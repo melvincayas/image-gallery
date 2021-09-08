@@ -23,8 +23,8 @@ const ImagesContainer = props => {
 				dataLength={props.images.length}
 				next={props.getMoreImages}
 				hasMore={true}
-				loader={<h4>Loading...</h4>}
-				endMessage={<p>No more images!</p>}
+				loader={<h2>Loading...</h2>}
+				endMessage={<h2>No more images!</h2>}
 				style={props.layout === "Grid" ? gridStyle : ""}
 			>
 				{props.images.map(image => (
