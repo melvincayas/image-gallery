@@ -2,6 +2,7 @@ import Enzyme, { shallow } from "enzyme";
 import EnzymeAdapter from "@wojtekmaj/enzyme-adapter-react-17";
 
 import ImageDetail from "./[id]";
+import image from "next/image";
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
@@ -39,9 +40,15 @@ describe("<ImageDetail /> in pages/images", () => {
 		expect(imageComponent.exists()).toBe(true);
 	});
 
-	test("renders user information", () => {
+	test("renders header block", () => {
 		const wrapper = setup();
-		const userInformation = wrapper.find('[data-test="user-information"]');
-		expect(userInformation.exists()).toBe(true);
+		const headerBlock = wrapper.find('[data-test="header-block"]');
+		expect(headerBlock.exists()).toBe(true);
+	});
+
+	test("renders image", () => {
+		const wrapper = setup();
+		const imageContainer = wrapper.find('[data-test="image-container"]');
+		expect(imageContainer.exists()).toBe(true);
 	});
 });

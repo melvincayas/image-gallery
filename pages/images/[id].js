@@ -12,12 +12,9 @@ const ImageDetail = props => {
 
 	return (
 		<section className={styles.container} data-test="component-image-detail">
-			<header>
+			<header data-test="header-block">
 				<section className={styles["header-row"]}>
-					<div
-						className={styles["user-information"]}
-						data-test="user-information"
-					>
+					<div className={styles["user-information"]}>
 						<div className={styles["profile-picture-container"]}>
 							<Link href={`https://unsplash.com/@${props.image.user.username}`}>
 								<a>
@@ -65,7 +62,7 @@ const ImageDetail = props => {
 					</div>
 				</section>
 			</header>
-			<div className={styles["image-container"]}>
+			<div className={styles["image-container"]} data-test="image-container">
 				<Image
 					src={props.image.urls.regular}
 					width={+props.image.width}
