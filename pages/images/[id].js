@@ -17,7 +17,7 @@ const ImageDetail = props => {
 
 	const header = (
 		<header data-test="header-block">
-			<section className={styles["header-row"]}>
+			<section className={styles["header-first-row"]}>
 				<div className={styles["user-information"]}>
 					<div className={styles["profile-picture-container"]}>
 						<Link href={`https://unsplash.com/@${props.image.user.username}`}>
@@ -46,14 +46,14 @@ const ImageDetail = props => {
 					<a>Back</a>
 				</Link>
 			</section>
-			<section className={styles["header-row"]}>
-				<div>
+			<section className={styles["header-second-row"]}>
+				<div className={styles["date-description-column"]}>
 					<p className={styles["header-text"]}>
 						<time>{moment(props.image.created_at).format("MMMM D, YYYY")}</time>
 					</p>
 					<p className={styles["header-text"]}>{imageDescription}</p>
 				</div>
-				<div className={styles["photo-views"]}>
+				<div className={styles["photo-views-column"]}>
 					<p className={styles["header-text"]}>
 						{Number(props.image.views).toLocaleString()} Views
 					</p>

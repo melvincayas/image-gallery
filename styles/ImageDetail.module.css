@@ -1,18 +1,31 @@
+.back {
+	text-align: right;
+}
+
 .container {
 	width: 80%;
 	margin-top: 1em;
 }
 
-.header-row {
+.header-first-row,
+.header-second-row {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
 }
 
+.header-text {
+	margin: 0.25em 0;
+}
+
 .image-container {
 	margin: 1em auto;
 	width: 100%;
+}
+
+.photo-views {
+	text-align: right;
 }
 
 .profile-picture-container {
@@ -23,20 +36,26 @@
 	border-radius: 50%;
 }
 
-.back {
-	text-align: right;
-}
-
 .user-information {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 }
 
-.header-text {
-	margin: 0.25em 0;
-}
+@media screen and (max-width: 769px) {
+	.date-description-column {
+		width: 100%;
+	}
 
-.photo-views {
-	text-align: right;
+	.header-second-row {
+		flex-direction: column;
+	}
+
+	.photo-views-column {
+		margin-top: 1em;
+		display: flex;
+		width: 100%;
+		flex-direction: row;
+		justify-content: space-between;
+	}
 }
