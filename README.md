@@ -8,6 +8,11 @@ The goals of this project are to:
 - Create a toggle button to toggle the image view from list to grid.
 - Clicking on an image renders the image in full resolution with additional information such as the photographer, date, views, and downloads.
 
+## Added Features
+
+- Added loading screen on route change using animation from [react-loading](https://www.npmjs.com/package/react-loading)
+- List-to-Grid button conditionally rendered based on width with custom hook: `useWindowDimensions`
+
 ## Built With
 
 - [React](https://reactjs.org/)
@@ -70,6 +75,7 @@ git push origin your-improvement
 - [Jest](https://jestjs.io/)
 - [Enzyme](https://www.npmjs.com/package/enzyme)
 - [react-infinite-scroll-component](https://www.npmjs.com/package/react-infinite-scroll-component)
+- [react-loading](https://www.npmjs.com/package/react-loading)
 
 ## Contact
 
