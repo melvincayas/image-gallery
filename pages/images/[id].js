@@ -71,7 +71,7 @@ const ImageDetail = props => {
 				contentTitle={`${imageDescription} | ${props.image.user.name} | Image Gallery`}
 				contentDescription={imageDescription}
 				contentUrl={`/images/${props.image.id}`}
-				contentImageURL={props.image.urls.regular}
+				contentImageURL={props.image.urls.small}
 				contentImageAlt={imageDescription}
 				pageTitle={`${imageDescription} | ${props.image.user.name} | Image Gallery`}
 			/>
