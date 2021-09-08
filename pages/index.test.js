@@ -2,13 +2,8 @@
  * @jest-environment jsdom
  */
 
-import React from "react";
-import Enzyme, { mount } from "enzyme";
-import EnzymeAdapter from "@wojtekmaj/enzyme-adapter-react-17";
-
+import { mount } from "enzyme";
 import Home from "./index";
-
-Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 /**
  * Function setup for mount method on Home component

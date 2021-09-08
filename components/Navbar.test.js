@@ -12,14 +12,18 @@ const setup = () => {
 };
 
 describe("<Navbar component renders", () => {
+	let wrapper;
+
+	beforeEach(() => {
+		wrapper = setup();
+	});
+
 	test("renders navbar", () => {
-		const wrapper = setup();
 		const navbarComponent = wrapper.find('[data-test="component-navbar"]');
 		expect(navbarComponent.exists()).toBe(true);
 	});
 
 	test("renders navbar logo", () => {
-		const wrapper = setup();
 		const navbarLogo = wrapper.find('[data-test="navbar-logo"]');
 		expect(navbarLogo.exists()).toBe(true);
 	});

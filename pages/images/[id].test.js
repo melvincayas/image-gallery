@@ -1,10 +1,5 @@
-import Enzyme, { shallow } from "enzyme";
-import EnzymeAdapter from "@wojtekmaj/enzyme-adapter-react-17";
-
+import { shallow } from "enzyme";
 import ImageDetail from "./[id]";
-import image from "next/image";
-
-Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 /**
  * Function setup for ShallowWrapper for ImageDetail component
@@ -34,21 +29,24 @@ const setup = () => {
 };
 
 describe("<ImageDetail /> in pages/images", () => {
+	let wrapper;
+
+	beforeEach(() => {
+		wrapper = setup();
+	});
+
 	test("renders component without error", () => {
-		const wrapper = setup();
 		const imageComponent = wrapper.find('[data-test="component-image-detail"]');
 		expect(imageComponent.exists()).toBe(true);
 	});
 
 	test("renders header block", () => {
-		const wrapper = setup();
 		const headerBlock = wrapper.find('[data-test="header-block"]');
 		expect(headerBlock.exists()).toBe(true);
 	});
 
-	test("renders image", () => {
-		const wrapper = setup();
+	test("renders 1 image", () => {
 		const imageContainer = wrapper.find('[data-test="image-container"]');
-		expect(imageContainer.exists()).toBe(true);
+		expect(imageContainer.length).toEqual(1);
 	});
 });
