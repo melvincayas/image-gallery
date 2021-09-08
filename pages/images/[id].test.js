@@ -19,6 +19,12 @@ const props = {
 		width: 100,
 		height: 100,
 		alt_description: "test alt description",
+		user: {
+			username: "test name",
+			profile_image: "https://testurl.com",
+			name: "Blank",
+			total_photos: 100,
+		},
 	},
 };
 
@@ -27,9 +33,15 @@ const setup = () => {
 };
 
 describe("<ImageDetail /> in pages/images", () => {
-	test("renders without error", () => {
+	test("renders component without error", () => {
 		const wrapper = setup();
 		const imageComponent = wrapper.find('[data-test="component-image-detail"]');
 		expect(imageComponent.exists()).toBe(true);
+	});
+
+	test("renders user information", () => {
+		const wrapper = setup();
+		const userInformation = wrapper.find('[data-test="user-information"]');
+		expect(userInformation.exists()).toBe(true);
 	});
 });

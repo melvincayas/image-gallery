@@ -2,6 +2,13 @@
 	width: 80%;
 }
 
+.header-first-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
 .image {
 	width: 100%;
 }

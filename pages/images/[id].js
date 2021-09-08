@@ -6,42 +6,48 @@ import Image from "next/image";
 import styles from "../../styles/ImageDetail.module.css";
 
 const ImageDetail = props => {
-	// Unsplash API recommends against Full size for performance issues
+	// Unsplash API docs recommend against Full size for performance issues
 	// next biggest is Regular size
 
 	return (
 		<section className={styles.container} data-test="component-image-detail">
-			<aside className={styles.back}>
-				<Link href="/">
-					<a>Back</a>
-				</Link>
-			</aside>
-			<aside>
-				<div className={styles["user-information"]}>
-					<div className={styles["profile-picture-container"]}>
-						<Link href={`https://unsplash.com/@${props.image.user.username}`}>
-							<a>
-								<Image
-									className={styles["profile-picture"]}
-									src={props.image.user.profile_image.medium}
-									width={64}
-									height={64}
-									layout="fixed"
-								/>
-							</a>
-						</Link>
+			<header>
+				<section className={styles["header-first-row"]}>
+					<div
+						className={styles["user-information"]}
+						data-test="user-information"
+					>
+						<div className={styles["profile-picture-container"]}>
+							<Link href={`https://unsplash.com/@${props.image.user.username}`}>
+								<a>
+									<Image
+										className={styles["profile-picture"]}
+										src={props.image.user.profile_image.medium}
+										width={64}
+										height={64}
+										layout="fixed"
+									/>
+								</a>
+							</Link>
+						</div>
+						<div>
+							<Link href={`https://unsplash.com/@${props.image.user.username}`}>
+								<a>{props.image.user.name}</a>
+							</Link>
+							<p className={styles["photo-amount"]}>
+								{props.image.user.total_photos} photos
+							</p>
+						</div>
 					</div>
-					<div>
-						<Link href={`https://unsplash.com/@${props.image.user.username}`}>
-							<a>{props.image.user.name}</a>
-						</Link>
-						<p className={styles["photo-amount"]}>
-							{props.image.user.total_photos} photos
-						</p>
-					</div>
-				</div>
-				<div></div>
-			</aside>
+					<Link href="/">
+						<a>Back</a>
+					</Link>
+				</section>
+				<section>
+					<p>{props.image.created_at}</p>
+					<p>{props.image.description || props.image.alt_description}</p>
+				</section>
+			</header>
 			<div className={styles.image}>
 				<figure>
 					<Image
