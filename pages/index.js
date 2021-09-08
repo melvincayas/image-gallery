@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import useWindowDimensions from "../components/hooks/useWindowDimensions";
 
 import ImagesContainer from "../components/ImagesContainer";
 
@@ -9,6 +10,10 @@ export default function Home(props) {
 	const [images, setImages] = useState([...props.images]);
 	const [layoutView, setLayoutView] = useState("List");
 
+	// for hiding list-to-grid button on mobile size
+	const windowDimensions = useWindowDimensions();
+
+	// to fetch more images for infinite scroll
 	const getMoreImages = async () => {
 		const response = await fetch(
 			`https://api.unsplash.com/photos?client_id=${
@@ -21,22 +26,28 @@ export default function Home(props) {
 		setImages(prevImages => [...prevImages, ...newImages]);
 	};
 
+	// button click handler for list-to-grid view
 	const onClickHandler = () => {
 		setLayoutView(layoutView === "List" ? "Grid" : "List");
 	};
 
+	// will conditionally render based on window size
+	const layoutContainer = (
+		<div className={styles["settings-container"]}>
+			<h3>Change Layout</h3>
+			<button
+				className={styles.button}
+				onClick={onClickHandler}
+				data-test="layout-button"
+			>
+				{layoutView}
+			</button>
+		</div>
+	);
+
 	return (
 		<section className={styles.container} data-test="component-home">
-			<div className={styles["settings-container"]}>
-				<h3>Change Layout</h3>
-				<button
-					className={styles.button}
-					onClick={onClickHandler}
-					data-test="layout-button"
-				>
-					{layoutView}
-				</button>
-			</div>
+			{windowDimensions.width > 957 && layoutContainer}
 			<ImagesContainer
 				images={images}
 				getMoreImages={getMoreImages}
