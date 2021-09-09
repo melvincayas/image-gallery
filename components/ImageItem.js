@@ -19,7 +19,7 @@ const ImageItem = props => {
 
 	return (
 		<figure className={imageClass} data-test="component-image">
-			<Link href={`/images/${props.image.id}`}>
+			<Link href={`/images/${props.image.id}`} prefetch={false}>
 				<a>
 					<Image
 						src={props.image.urls.small}
