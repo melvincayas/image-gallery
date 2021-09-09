@@ -11,7 +11,7 @@ const ImagesContainer = props => {
 		display: "flex",
 		flexDirection: "row",
 		flexWrap: "wrap",
-		justifyContent: "center",
+		justifyContent: "space-evenly",
 	};
 
 	return (
