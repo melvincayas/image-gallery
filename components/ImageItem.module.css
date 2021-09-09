@@ -13,3 +13,24 @@
 	width: 200px;
 	margin: 0.5em;
 }
+
+@media screen and (max-width: 768px) {
+	.image-mobile-grid {
+		width: 175px;
+		margin: 0.5em;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.image-mobile-grid {
+		width: 125px;
+		margin: 0.35em;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.image-mobile-grid {
+		width: 100px;
+		margin: 0.2em;
+	}
+}
