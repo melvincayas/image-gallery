@@ -1,6 +1,5 @@
 import { Fragment, useState } from "react";
 import PropTypes from "prop-types";
-import useWindowDimensions from "../components/hooks/useWindowDimensions";
 
 import NextHead from "../components/NextHead";
 import ImagesContainer from "../components/ImagesContainer";
@@ -10,9 +9,6 @@ import styles from "../styles/Home.module.css";
 export default function Home(props) {
 	const [images, setImages] = useState([...props.images]);
 	const [layoutView, setLayoutView] = useState("List");
-
-	// for hiding list-to-grid button on mobile size
-	const windowDimensions = useWindowDimensions();
 
 	// to fetch more images for infinite scroll
 	const getMoreImages = async () => {
@@ -32,20 +28,6 @@ export default function Home(props) {
 		setLayoutView(layoutView === "List" ? "Grid" : "List");
 	};
 
-	// will conditionally render based on window size
-	const layoutContainer = (
-		<div className={styles["settings-container"]}>
-			<h2>Change Layout</h2>
-			<button
-				className={styles.button}
-				onClick={onClickHandler}
-				data-test="layout-button"
-			>
-				{layoutView}
-			</button>
-		</div>
-	);
-
 	return (
 		<Fragment>
 			<NextHead
@@ -57,8 +39,18 @@ export default function Home(props) {
 				pageTitle="Image Gallery"
 			/>
 			<section className={styles.container} data-test="component-home">
-				{windowDimensions.width > 957 && layoutContainer}
+				<div className={styles["settings-container"]}>
+					<h2>Change Layout</h2>
+					<button
+						className={styles.button}
+						onClick={onClickHandler}
+						data-test="layout-button"
+					>
+						{layoutView}
+					</button>
+				</div>
 				<ImagesContainer
+					view={layoutView}
 					images={images}
 					getMoreImages={getMoreImages}
 					layout={layoutView}

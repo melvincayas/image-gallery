@@ -16,6 +16,7 @@ const props = {
 		height: 100,
 		alt_description: "test alt description",
 	},
+	view: "List",
 };
 
 const setup = () => {

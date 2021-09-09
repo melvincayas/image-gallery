@@ -28,7 +28,7 @@ const ImagesContainer = props => {
 				style={props.layout === "Grid" ? gridStyle : ""}
 			>
 				{props.images.map(image => (
-					<ImageItem key={image.id} image={image} />
+					<ImageItem view={props.view} key={image.id} image={image} />
 				))}
 			</InfiniteScroll>
 		</section>
@@ -38,6 +38,7 @@ const ImagesContainer = props => {
 ImagesContainer.propTypes = {
 	images: PropTypes.arrayOf(PropTypes.object).isRequired,
 	getMoreImages: PropTypes.func,
+	view: PropTypes.string,
 };
 
 export default ImagesContainer;

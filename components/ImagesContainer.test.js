@@ -12,6 +12,7 @@ const props = {
 			alt_description: "test alt description",
 		},
 	],
+	view: "List",
 };
 
 /**
