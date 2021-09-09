@@ -1,7 +1,23 @@
 import PropTypes from "prop-types";
 import Head from "next/head";
 
+import { useRouter } from "next/router";
+
 const NextHead = props => {
+	const router = useRouter();
+
+	const isAtHomePage = router.pathname === "/";
+
+	const fontAwesome = (
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+			integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+			crossOrigin="anonymous"
+		></link>
+	);
+	const cdn = isAtHomePage ? fontAwesome : "";
+
 	return (
 		<Head>
 			<meta name="twitter:title" content={props.contentTitle} />
@@ -11,6 +27,7 @@ const NextHead = props => {
 			<meta property="og:description" content={props.contentDescription} />
 			<meta property="og:image" content={props.contentImageURL} />
 			<meta property="og:image:alt" content={props.contentImageAlt} />
+			{cdn}
 			<title>{props.pageTitle}</title>
 		</Head>
 	);

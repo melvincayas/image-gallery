@@ -4,6 +4,11 @@
 
 import { mount } from "enzyme";
 import Home from "../pages/index";
+import * as nextRouter from "next/router";
+
+// mocking useRouter
+nextRouter.useRouter = jest.fn();
+nextRouter.useRouter.mockImplementation(() => ({ route: "/" }));
 
 /**
  * Function setup for mount method on Home component
@@ -41,9 +46,14 @@ describe("<Home /> Component renders properly", () => {
 			expect(homeComponent.exists()).toBe(true);
 		});
 
-		test("renders List text in button", () => {
-			const layoutButton = wrapper.find('[data-test="layout-button"]');
-			expect(layoutButton.text()).toEqual("List");
+		test("renders List icon in button", () => {
+			const icon = wrapper.find('[data-test="icon-list"]');
+			expect(icon.exists()).toBe(true);
+		});
+
+		test("does not render the Grid icon in button", () => {
+			const icon = wrapper.find('[data-test="icon-grid"]');
+			expect(icon.exists()).toBe(false);
 		});
 
 		test("renders 1 image", () => {
@@ -56,7 +66,17 @@ describe("<Home /> Component renders properly", () => {
 		test("layout changes on button click", () => {
 			const layoutButton = wrapper.find('[data-test="layout-button"]');
 			layoutButton.simulate("click");
-			expect(layoutButton.text()).toEqual("Grid");
+
+			const icon = wrapper.find('[data-test="icon-grid"]');
+			expect(icon.exists()).toBe(true);
+		});
+
+		test("does not render List icon when button clicked", () => {
+			const layoutButton = wrapper.find('[data-test="layout-button"]');
+			layoutButton.simulate("click");
+
+			const icon = wrapper.find('[data-test="icon-list"]');
+			expect(icon.exists()).toBe(false);
 		});
 	});
 });

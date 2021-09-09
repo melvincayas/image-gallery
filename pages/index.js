@@ -39,14 +39,17 @@ export default function Home(props) {
 				pageTitle="Image Gallery"
 			/>
 			<section className={styles.container} data-test="component-home">
-				<div className={styles["settings-container"]}>
-					<h2>Change Layout</h2>
+				<div className={styles["layout-container"]}>
 					<button
 						className={styles.button}
 						onClick={onClickHandler}
 						data-test="layout-button"
 					>
-						{layoutView}
+						{layoutView === "List" ? (
+							<i className="fas fa-list" data-test="icon-list"></i>
+						) : (
+							<i className="fas fa-th" data-test="icon-grid"></i>
+						)}
 					</button>
 				</div>
 				<ImagesContainer

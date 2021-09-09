@@ -1,7 +1,6 @@
 import { shallow } from "enzyme";
 import ImageDetail from "../../pages/images/[id]";
 import * as nextRouter from "next/router";
-import { tsParenthesizedType } from "@babel/types";
 
 // mocking useRouter
 nextRouter.useRouter = jest.fn();
