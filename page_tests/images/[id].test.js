@@ -1,5 +1,11 @@
 import { shallow } from "enzyme";
 import ImageDetail from "../../pages/images/[id]";
+import * as nextRouter from "next/router";
+import { tsParenthesizedType } from "@babel/types";
+
+// mocking useRouter
+nextRouter.useRouter = jest.fn();
+nextRouter.useRouter.mockImplementation(() => ({ route: "/" }));
 
 /**
  * Function setup for ShallowWrapper for ImageDetail component
@@ -7,7 +13,7 @@ import ImageDetail from "../../pages/images/[id]";
  * @returns {ShallowWrapper} - Top level of ImageDetail
  */
 
-const props = {
+const defaultProps = {
 	image: {
 		id: 1,
 		author: "test author",
@@ -24,11 +30,12 @@ const props = {
 	},
 };
 
-const setup = () => {
-	return shallow(<ImageDetail {...props} />);
+const setup = props => {
+	const allProps = { ...defaultProps, ...props };
+	return shallow(<ImageDetail {...allProps} />);
 };
 
-describe("<ImageDetail /> in pages/images", () => {
+describe("<ImageDetail /> renders when image is fetched correctly", () => {
 	let wrapper;
 
 	beforeEach(() => {
@@ -48,5 +55,16 @@ describe("<ImageDetail /> in pages/images", () => {
 	test("renders 1 image", () => {
 		const imageContainer = wrapper.find('[data-test="image-container"]');
 		expect(imageContainer.length).toEqual(1);
+	});
+});
+
+describe("<Image /> fails during fetch", () => {
+	test("error messages are displayed", () => {
+		const wrapper = setup({
+			error: true,
+			errorMessages: ["Cannot find that photo."],
+		});
+		const errorMessages = wrapper.find('[data-test="component-error"]');
+		expect(errorMessages.exists()).toBe(true);
 	});
 });

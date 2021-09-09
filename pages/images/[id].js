@@ -13,6 +13,17 @@ import styles from "../../styles/ImageDetail.module.css";
 const ImageDetail = props => {
 	const router = useRouter();
 
+	// display error messages if error with image fetch
+	if (props.error) {
+		const errorMessages = props.errorMessages.map((message, id) => (
+			<div key={id} data-test="component-error">
+				<p>{message}</p>
+			</div>
+		));
+		return errorMessages;
+	}
+
+	// Loading if page was not pre-rendered (fallback)
 	if (router.isFallback) {
 		return <LoadingScreen />;
 	}
@@ -133,6 +144,17 @@ export const getStaticProps = async context => {
 	);
 	const image = await response.json();
 
+	// return error if image is not found
+	if (image.errors) {
+		return {
+			props: {
+				error: true,
+				errorMessages: image.errors,
+			},
+		};
+	}
+
+	// return image if successful
 	return {
 		props: { image },
 	};
