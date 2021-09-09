@@ -27,6 +27,7 @@ const defaultProps = {
 			name: "Blank",
 			total_photos: 100,
 		},
+		created_at: new Date("09 September 2021 14:48 UTC").toISOString(),
 	},
 };
 

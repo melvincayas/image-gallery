@@ -71,7 +71,7 @@ git push origin your-improvement
 - [React](https://reactjs.org/)
 - [Next.js](https://nextjs.org/)
 - [Unsplash API](https://unsplash.com/documentation)
-- [Moment.js](https://momentjs.com/)
+- [date-fns](https://date-fns.org/)
 - [Jest](https://jestjs.io/)
 - [Enzyme](https://www.npmjs.com/package/enzyme)
 - [Open Graph Protocol](https://ogp.me/)

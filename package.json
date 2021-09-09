@@ -10,8 +10,8 @@
 		"test": "jest --watch"
 	},
 	"dependencies": {
+		"date-fns": "^2.23.0",
 		"identity-obj-proxy": "^3.0.0",
-		"moment": "^2.29.1",
 		"next": "11.1.2",
 		"prop-types": "^15.7.2",
 		"react": "17.0.2",

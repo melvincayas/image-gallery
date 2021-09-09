@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
-import moment from "moment";
+import { format, parseISO } from "date-fns";
 
 import LoadingScreen from "../../components/LoadingScreen";
 import NextHead from "../../components/NextHead";
@@ -69,7 +69,9 @@ const ImageDetail = props => {
 			<section className={styles["header-second-row"]}>
 				<div className={styles["date-description-column"]}>
 					<p className={styles["header-text"]}>
-						<time>{moment(props.image.created_at).format("MMMM D, YYYY")}</time>
+						<time>
+							{format(parseISO(props.image.created_at), "MMMM d, yyyy ")}
+						</time>
 					</p>
 					<p className={styles["header-text"]}>{imageDescription}</p>
 				</div>
