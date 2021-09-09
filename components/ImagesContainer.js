@@ -10,7 +10,7 @@ import styles from "./ImagesContainer.module.css";
 const ImagesContainer = props => {
 	const windowDimensions = useWindowDimensions();
 
-	const numberOfColumns = windowDimensions.width <= 768 ? 2 : 3;
+	const numberOfColumns = windowDimensions.width <= 1024 ? 2 : 3;
 
 	const gridStyle = {
 		columnCount: numberOfColumns,
