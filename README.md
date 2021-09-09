@@ -11,7 +11,6 @@ The goals of this project are to:
 ## Added Features
 
 - Added loading screen on route change using animation from [react-loading](https://www.npmjs.com/package/react-loading)
-- List-to-Grid button conditionally rendered based on width with custom hook: `useWindowDimensions`
 - Add [Open Graph](https://ogp.me/) meta tags in `_document.js` and `Head` from `next/head` for social sharing
 
 ## Built With
