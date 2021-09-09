@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import useWindowDimensions from "./hooks/useWindowDimensions";
 
 import ImageItem from "./ImageItem";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -7,11 +8,13 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import styles from "./ImagesContainer.module.css";
 
 const ImagesContainer = props => {
+	const windowDimensions = useWindowDimensions();
+
+	const numberOfColumns = windowDimensions.width <= 768 ? 2 : 3;
+
 	const gridStyle = {
-		display: "flex",
-		flexDirection: "row",
-		flexWrap: "wrap",
-		justifyContent: "space-evenly",
+		columnCount: numberOfColumns,
+		columnGap: "1em",
 	};
 
 	return (

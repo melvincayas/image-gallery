@@ -11,7 +11,7 @@ const ImageItem = props => {
 	const windowDimensions = useWindowDimensions();
 
 	const isGridViewInMobile =
-		windowDimensions.width < 957 && props.view === "Grid";
+		windowDimensions.width < 1200 && props.view === "Grid";
 
 	const imageClass = isGridViewInMobile
 		? styles["image-mobile-grid"]
