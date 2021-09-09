@@ -86,5 +86,5 @@ Melvin Cayas
 [melvincayas.com](https://melvincayas.com/)
 
 Links  
-[Live](https://image-gallery-melvin.vercel.app)
+[Live](https://image-gallery-melvin.vercel.app)  
 [GitHub](https://github.com/melvincayas/image-gallery)
