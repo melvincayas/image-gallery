@@ -12,6 +12,7 @@ The goals of this project are to:
 
 - Added loading screen on route change using animation from [react-loading](https://www.npmjs.com/package/react-loading)
 - Add [Open Graph](https://ogp.me/) meta tags in `_document.js` and `Head` from `next/head` for social sharing
+- Use [FontAwesome](https://fontawesome.com/) to load icons for layout button
 
 ## Built With
 
@@ -71,6 +72,7 @@ git push origin your-improvement
 - [React](https://reactjs.org/)
 - [Next.js](https://nextjs.org/)
 - [Unsplash API](https://unsplash.com/documentation)
+- [FontAwesome](https://fontawesome.com/)
 - [date-fns](https://date-fns.org/)
 - [Jest](https://jestjs.io/)
 - [Enzyme](https://www.npmjs.com/package/enzyme)
