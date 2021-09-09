@@ -9,11 +9,6 @@
 	transform: scale(1.01);
 }
 
-/* .image-mobile-grid {
-	width: 200px;
-	margin: 0.5em;
-} */
-
 @media screen and (max-width: 1200px) {
 	.image-mobile-grid {
 		width: 280px;
