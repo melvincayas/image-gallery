@@ -92,7 +92,7 @@ const ImageDetail = props => {
 			<NextHead
 				contentTitle={`${imageDescription} | ${props.image.user.name} | Image Gallery`}
 				contentDescription={imageDescription}
-				contentUrl={`/images/${props.image.id}`}
+				contentUrl={`https://image-gallery-melvin.vercel.app/images/${props.image.id}`}
 				contentImageURL={props.image.urls.small}
 				contentImageAlt={imageDescription}
 				pageTitle={`${imageDescription} | ${props.image.user.name} | Image Gallery`}

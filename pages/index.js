@@ -33,7 +33,7 @@ export default function Home(props) {
 			<NextHead
 				contentTitle="Image Gallery with Next.js"
 				contentDescription="Image Gallery with Unsplash API and Next.js"
-				contentUrl="/"
+				contentUrl="https://image-gallery-melvin.vercel.app/"
 				contentImageURL="https://images.unsplash.com/photo-1518707598572-8cf7dabd8f66?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
 				contentImageAlt="Screen with multiple images"
 				pageTitle="Image Gallery"
