@@ -1,5 +1,5 @@
 import { shallow } from "enzyme";
-import ImageDetail from "./[id]";
+import ImageDetail from "../../pages/images/[id]";
 
 /**
  * Function setup for ShallowWrapper for ImageDetail component

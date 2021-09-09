@@ -1,7 +1,9 @@
 import { Fragment } from "react";
+import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import moment from "moment";
 
+import LoadingScreen from "../../components/LoadingScreen";
 import NextHead from "../../components/NextHead";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,6 +11,12 @@ import Image from "next/image";
 import styles from "../../styles/ImageDetail.module.css";
 
 const ImageDetail = props => {
+	const router = useRouter();
+
+	if (router.isFallback) {
+		return <LoadingScreen />;
+	}
+
 	const imageDescription =
 		props.image.description || props.image.alt_description;
 
@@ -97,24 +105,29 @@ ImageDetail.propTypes = {
 };
 
 export const getStaticPaths = async () => {
-	const response = await fetch(
-		`https://api.unsplash.com/photos?client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&per_page=10&page=1`
-	);
+	try {
+		const response = await fetch(
+			`https://api.unsplash.com/photos?client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&per_page=10&page=1`
+		);
 
-	const result = await response.json();
+		const result = await response.json();
 
-	const paths = result.map(image => {
-		return { params: { id: image.id.toString() } };
-	});
+		const paths = result.map(image => {
+			return { params: { id: image.id.toString() } };
+		});
 
-	return {
-		paths,
-		fallback: true,
-	};
+		return {
+			paths,
+			fallback: true,
+		};
+	} catch (err) {
+		console.log(err);
+	}
 };
 
 export const getStaticProps = async context => {
 	const id = context.params.id;
+
 	const response = await fetch(
 		`https://api.unsplash.com/photos/${id}?client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}`
 	);

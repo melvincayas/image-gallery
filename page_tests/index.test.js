@@ -3,7 +3,7 @@
  */
 
 import { mount } from "enzyme";
-import Home from "./index";
+import Home from "../pages/index";
 
 /**
  * Function setup for mount method on Home component
