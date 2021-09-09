@@ -1,6 +1,6 @@
 # Image Gallery with Next.js
 
-This is a project using the Unplash API to fetch images with Next.js. The application will initially fetch 10 images and will keep doing so through infinite scroll with [react-infinite-scroll-component](https://www.npmjs.com/package/react-infinite-scroll-component).
+This is a project using the Unplash API to fetch images with Next.js. The application will initially fetch 10 images and will keep doing so through infinite scroll with [react-infinite-scroll-component](https://www.npmjs.com/package/react-infinite-scroll-component). You can view it live [here](https://image-gallery-melvin.vercel.app).
 
 The goals of this project are to:
 
@@ -33,7 +33,7 @@ git clone https://github.com/melvincayas/image-gallery.git
 npm install
 ```
 
-3. You must get an API access key from [Unsplash](https://unsplash.com/documentation#creating-a-developer-account). Please keep in mind that demo apps are limited to 50 requests per hour.
+3. You must get an API access key from [Unsplash](https://unsplash.com/documentation#creating-a-developer-account). Please keep in mind that demo apps are limited to 50 requests per hour. Your fetches won't work if you exceed this limit.
 
 4. Include the following in your `.env.local` file:
 
@@ -86,4 +86,5 @@ Melvin Cayas
 [melvincayas.com](https://melvincayas.com/)
 
 Links  
+[Live](https://image-gallery-melvin.vercel.app)
 [GitHub](https://github.com/melvincayas/image-gallery)
